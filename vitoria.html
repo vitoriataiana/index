@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<body bgcolor="DarkSeaGreen" text = "Teal">
+    <h1> <font size = "+4"> Membrane Protein </font> <font face=Courier "size="12" color= "green"> Predictor </font> </h1>
+	
+	<p> <i>Wellcome!</i> </p>
+	<hr color= "white" width = "100%" size= "3em"/>
+
+  <h3> Submit your sequence protein: </h3>
+
+    <form action="/predict" method="POST">
+        <textarea name="sequence" placeholder=">sequence in FASTA format ..." 
+            style="width: 400px; height: 100px"></textarea><br>
+        <input type="submit" value="submit">
+		<input type="reset" value="reset">
+    </form>
+    <hr color= "white" width = "100%" size= "3em"/> 
+    {% if result %}
+        <h2>Result of analysis:</h2>
+        <pre>{{result['sequence']}}</pre>
+        Protein Location: {{result['location']}} <br>
+        Probability (membrane): {{result['probability']}} <br>
+    {% endif %}
+
+</body>
+</html>
